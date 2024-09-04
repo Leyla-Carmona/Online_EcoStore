@@ -21,6 +21,8 @@ $paragraph-size: 1.5em;
     }
 }
 
+
+
 body {
     margin: 0;
     padding: 0;
@@ -29,6 +31,22 @@ body {
 }
 
 nav {
+    
+    a {
+        text-decoration: none;
+        color: $primary-text-color;
+        font-weight: bold;
+        text-shadow: black;
+        font-size: 2rem;
+        transition-duration: 1.5s;
+        font-weight: 400;
+      }
+
+      a:hover {
+      color:#3852c5;
+      transition-duration: 1.5s;
+}
+
     width: auto;
     @include flexCenter(row, space-between, center);
     justify-content: space-between;

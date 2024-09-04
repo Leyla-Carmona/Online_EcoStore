@@ -16,6 +16,19 @@ nav {
   color: #7C6A0A;
   padding: 15px;
 }
+nav a {
+  text-decoration: none;
+  color: #7C6A0A;
+  font-weight: bold;
+  text-shadow: black;
+  font-size: 2rem;
+  transition-duration: 1.5s;
+  font-weight: 400;
+}
+nav a:hover {
+  color: #3852c5;
+  transition-duration: 1.5s;
+}
 nav p {
   font-size: 1.5em;
   padding-left: 30px;
