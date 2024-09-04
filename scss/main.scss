@@ -1,0 +1,382 @@
+$primary-color: #FFEFE7;
+$secondary-color: #FFDAC6;
+$tertiary-color: #BABD8D;
+$primary-text-color: #7C6A0A;
+$quaternary-color: #FA9500;
+$font-stack: 'IBM Plex Sans', sans-serif;
+$paragraph-size: 1.5em;
+
+
+@mixin flexCenter($direction, $content, $align) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $content;
+    align-items: $align;
+}
+
+@mixin buttonStyle {
+    button {
+        background: none;
+        border-style: none;
+    }
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: $primary-color;
+    font-family: $font-stack;
+}
+
+nav {
+    width: auto;
+    @include flexCenter(row, space-between, center);
+    justify-content: space-between;
+    color: $primary-text-color;
+    padding: 15px;
+
+    p {
+        font-size: $paragraph-size;
+        padding-left: 30px;
+    }
+
+    .icons {
+        display: flex;
+        gap: 15px;
+        @include buttonStyle();
+    }
+}
+
+article {
+    width: auto;
+    color: $primary-text-color;
+    @include flexCenter(row, space-between, center);
+    padding-left: 45px;
+    padding-right: 45px;
+    padding-top: 70px;
+
+    .impact-section {
+        @include flexCenter(column,space-evenly,flex-start);
+        padding-top: 50px;
+        gap: 25px;
+    }
+
+    h1 {
+        font-size: 3em;
+        padding: 0px;
+        margin: 0px;
+    }
+
+    p {
+        font-size: $paragraph-size;
+        padding-left: 30px;
+    }
+
+
+    @include buttonStyle;
+
+    button {
+        width: 12vw;
+        padding: 20px;
+        background-color: $quaternary-color;
+        border-radius: 35px;
+        color: white;
+        font-size: 1em;
+        &:hover{
+            transform: scale(1.1);
+        }
+    }
+
+    img {
+        width: 25vw;
+        border-radius: 19px;
+    }
+}
+
+
+section {
+    width: auto;
+    height: auto;
+    padding: 60px;
+
+    h2 {
+        color: $primary-text-color;
+        font-size: 2em;
+    }
+
+    .healthcare {
+        padding-bottom: 60px;
+
+        h2 {
+            font-weight: 300;
+            padding-bottom: 60px;
+        }
+
+        .card-section {
+            width: auto;
+            height: auto;
+            @include flexCenter(row, space-evenly, center);
+            flex-wrap: wrap;
+            column-gap: 200px;
+            row-gap: 80px;
+        }
+
+        .product-card {
+            width: 14vw;
+            height: 55vh;
+            background-color: $secondary-color;
+            color: $primary-text-color;
+            padding: 20px;
+            border-radius: 8px;
+
+            .icon {
+                width: 100%;
+                display: flex;
+                justify-content: flex-end;
+                padding-bottom: 12px;
+
+                svg {
+                    width: 28px;
+                    height: 28px;
+                }
+
+            }
+        }
+
+        .product-image {
+            width: 100%;
+            height: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            img {
+                width: 16vw;
+                height: 30vh;
+                object-fit: cover;
+                border-radius: 6px;
+            }
+        }
+    }
+
+
+.furniture {
+    @extend .healthcare;
+
+    .product-card {
+        background-color: $tertiary-color;
+        color: white;
+    }
+}
+}
+main {
+    background-color: $primary-color;
+}
+
+.about-us{
+    padding-bottom: 60px;
+    h2{
+        font-weight: bold;
+        padding-bottom: 60px;
+    }
+    .mission-section{
+        @include flexCenter(row,space-evenly, center);
+        .earth{
+            width: 30vw;
+            display: flex;
+            gap:40px;
+            color: rgb(168, 81, 40);
+            img{
+                object-fit: contain;
+            }
+            p{
+                text-align: center;
+                font-size: $paragraph-size;
+            }
+        }
+    }
+    .innovation{
+        @extend .earth;
+    }    
+}
+
+.gallery{
+    h2{
+        font-weight: bold;
+        padding-bottom: 60px
+    }
+    .gallery-section{
+        @include flexCenter(row, space-between, center);
+        img{
+            width: 28vw;
+            height: 45vh;
+            object-fit: cover;
+            object-position: 5px 35%;
+            border-radius: 16px;
+            &:hover{
+                transform: scale(1.1);
+            }
+        }
+    }
+}
+
+.location{
+    color: rgb(168, 81, 40);
+
+    h2{
+        font-size: 2em;
+        padding-bottom: 60px;
+        padding-top:60px;
+    }
+    .map{
+        @include flexCenter(row, center, center);
+        padding-bottom: 50px;
+    }
+    h3{
+        font-size: $paragraph-size;
+    }
+    p{
+        font-size: $paragraph-size;
+    }
+}
+footer {
+    background-color: $quaternary-color;
+    width: 100%;
+    height: 250px;
+    color:white;
+    padding: 40p;
+    .social-media{
+        @include flexCenter(row, center, center);
+        gap:40px;
+        padding-bottom: 40px;
+    }
+}
+
+/* Media Queries for Mobile */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        p {
+            font-size: 1.2em;
+            padding-left: 0;
+            text-align: center;
+        }
+        .icons {
+            gap: 10px;
+            justify-content: center;
+        }
+    }
+
+    article {
+        flex-direction: column;
+        padding: 20px;
+
+        .impact-section {
+            padding-top: 30px;
+        }
+
+        h1 {
+            font-size: 2em;
+        }
+
+        p {
+            font-size: 1.2em;
+            padding-left: 0;
+            text-align: center;
+        }
+
+        button {
+            width: 80%;
+            padding: 15px;
+            font-size: 0.9em;
+        }
+
+        img {
+            width: 80%;
+            margin: 0 auto;
+        }
+    }
+
+    section {
+        padding: 20px;
+
+        h2 {
+            font-size: 1.5em;
+            text-align: center;
+        }
+
+        .healthcare,
+        .furniture {
+            padding-bottom: 30px;
+
+            h2 {
+                padding-bottom: 30px;
+            }
+
+            .card-section {
+                flex-direction: column;
+                column-gap: 0;
+                row-gap: 20px;
+            }
+
+            .product-card {
+                width: 90%;
+                height: auto;
+                margin: 0 auto;
+            }
+
+            .product-image img {
+                width: 90%;
+                height: auto;
+            }
+        }
+    }
+
+    .about-us .mission-section,
+    .about-us .innovation {
+        flex-direction: column;
+
+        .earth {
+            width: 100%;
+            flex-direction: column;
+            gap: 20px;
+        }
+    }
+
+    .gallery .gallery-section {
+        flex-direction: column;
+
+        img {
+            width: 90%;
+            height: auto;
+            margin: 0 auto;
+        }
+    }
+
+    .location {
+        .map {
+            flex-direction: column;
+            padding-bottom: 20px;
+            width: 100%; /* Ajusta el ancho para móviles */
+            height: auto; /* Ajusta la altura automáticamente */
+            margin: 0 auto; /* Centra el mapa */
+            
+            img, iframe {
+                width: 100%; /* Asegura que el mapa ocupe todo el ancho disponible */
+                height: auto; /* Ajusta la altura proporcionalmente */
+                max-height: 300px; /* Establece un máximo de altura para evitar que el mapa se vea demasiado grande */
+                border-radius: 16px;
+            }
+        }
+    }
+
+    footer {
+        height: auto;
+        padding: 20px;
+
+        .social-media {
+            flex-direction: column;
+            gap: 20px;
+        }
+    }
+}
